@@ -2,11 +2,12 @@ from helper import *
 from encrypt import *
 from helper import _64bitArrayToString
 from keyGeneration import *
-def decrypt(filename="",key=""):
-	text="$'3puf#(,o?y}~:147#`ev38}`5 `u`"
+def decrypt(text,filename="",key=""):
+	# text="$'3puf#(,o?y}~:147#`ev38}`5 `u`"
 	key="abcdefgh"
 
 	roundKeys=generateReverseKey(key)
+	# roundKeys=generateKey(key)
 	bitArray=stringTo64BitArray(text)
 	decryptedBitArray=[]
 
@@ -19,3 +20,4 @@ def decrypt(filename="",key=""):
 
 if __name__=="__main__":
 	print(decrypt())
+	print(len(decrypt()))

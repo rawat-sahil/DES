@@ -4,7 +4,7 @@ from tables import *
 from keyGeneration import *
 
 def encrypt(filename="", key=""):
-	text="abcdefghijklmnopqrstuvwxyz"
+	text="abcdefghijklmnopqrstuvwxyzabcdef"
 	key="abcdefgh"
 
 	roundKeys=generateKey(key)
@@ -22,7 +22,7 @@ def encryptString(s64bits,roundKeys):
 	s64bits=initialPermutaion(s64bits)
 	left=s64bits[0:32]
 	right=s64bits[32:]
-	for i in range(1):
+	for i in range(16):
 		tempRight=functionF(right,roundKeys[i])
 
 		for i in range(len(tempRight)):#this for loop for xoring output of functionF with left
@@ -92,3 +92,4 @@ def expansionPbox(s32bit):
 
 if __name__=="__main__":
 	print(encrypt())
+	print(len(encrypt()))
