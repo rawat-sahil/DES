@@ -17,7 +17,7 @@ def frombits(charArray):
 
 def stringTo64BitArray(s):
     array=[]
-    for i in range(8-len(s)%8):
+    for i in range((8-(len(s)%8))%8):
         s=s+' '
     for i in range(len(s)//8):
         array.append(tobits(s[i*8:(i+1)*8]))
@@ -32,4 +32,4 @@ def _64bitArrayToString(array):
     return s
 
 if __name__=="__main__":
-    stringTo64BitArray(" ")
+    stringTo64BitArray("abcdefghijklmnopqrstuvwxyzabcdef")

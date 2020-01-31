@@ -4,7 +4,7 @@ from tables import *
 from keyGeneration import *
 
 def encrypt(filename="", key=""):
-	text="abcdefghijklmnopqrstuvwxyzabcdef"
+	text="abcdefghijklmnopqrstuvwxyz"
 	key="abcdefgh"
 
 	roundKeys=generateKey(key)
