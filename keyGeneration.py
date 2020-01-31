@@ -46,7 +46,8 @@ def generateKey(key):
     return RoundKeys
 
 def generateReverseKey(key):
-    return generateKey(key).reverse()
-
+    roundKeys =generateKey(key)
+    roundKeys.reverse()
+    return roundKeys
 if __name__=="__main__":
     print(generateKey("abcdefgh"))
