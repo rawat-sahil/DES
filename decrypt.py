@@ -1,3 +1,5 @@
+from helper import *
+from keyGeneration import *
 def decrypt(filename,key):
 	print("something")
 
