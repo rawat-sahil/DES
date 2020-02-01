@@ -3,9 +3,17 @@ from helper import _64bitArrayToString
 from tables import *
 from keyGeneration import *
 
-def encrypt(filename="", key=""):
-	text="abcdefghijklmnopqrstuvwxyz"
-	key="abcdefgh"
+def encrypt(text=None,filename=None, key=None):
+	textfile=None
+
+	if(filename!=None):
+		try:
+			textfile=open(filename,"r")
+		except:
+			print("file not found")
+			return 
+		text=textfile.readlines()
+		text="".join(text)
 
 	roundKeys=generateKey(key)
 	bitArray=stringTo64BitArray(text)
@@ -14,8 +22,13 @@ def encrypt(filename="", key=""):
 	for i in bitArray:
 		encryptedBitArray.append(encryptString(i,roundKeys))
 
-	return _64bitArrayToString(encryptedBitArray)
-
+	if(filename!=None):
+		encryptedTextFile=open("encrypted.txt","w")
+		encryptedTextFile.writelines(_64bitArrayToString(encryptedBitArray))
+		return
+	encryptedString=_64bitArrayToString(encryptedBitArray)
+	print(encryptedString)
+	return encryptedString
 
 
 def encryptString(s64bits,roundKeys):
