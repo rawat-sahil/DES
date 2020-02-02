@@ -32,18 +32,19 @@ def compressionDBox(left,right):
     return tempKey
 
 def generateKey(key):
-    KeybitArray=stringTo64BitArray(key)
-    KeybitArray=parityBitPermutation(KeybitArray[0])
+	print(key,len(key))
+	KeybitArray=stringTo64BitArray(key)
+	KeybitArray=parityBitPermutation(KeybitArray[0])
 
-    left=KeybitArray[0:28]
-    right=KeybitArray[28:]
-    RoundKeys=[]
-    for i in shiftInEachRound:
-        left=left[i:]+left[0:i]
-        right=right[i:]+right[0:i]
-        RoundKeys.append(compressionDBox(left,right))
+	left=KeybitArray[0:28]
+	right=KeybitArray[28:]
+	RoundKeys=[]
+	for i in shiftInEachRound:
+		left=left[i:]+left[0:i]
+		right=right[i:]+right[0:i]
+		RoundKeys.append(compressionDBox(left,right))
 
-    return RoundKeys
+	return RoundKeys
 
 def generateReverseKey(key):
     roundKeys =generateKey(key)
