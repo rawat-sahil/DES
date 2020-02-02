@@ -36,6 +36,7 @@ def encryptString(s64bits,roundKeys):
 	left=s64bits[0:32]
 	right=s64bits[32:]
 	for i in range(16):
+		# print("".join([str(i)for i in left])+"          "+"".join([str(i)for i in right]))
 		tempRight=functionF(right,roundKeys[i])
 
 		for i in range(len(tempRight)):#this for loop for xoring output of functionF with left

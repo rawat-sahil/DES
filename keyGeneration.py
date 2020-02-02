@@ -32,7 +32,7 @@ def compressionDBox(left,right):
     return tempKey
 
 def generateKey(key):
-	print(key,len(key))
+	# print(key,len(key))
 	KeybitArray=stringTo64BitArray(key)
 	KeybitArray=parityBitPermutation(KeybitArray[0])
 
